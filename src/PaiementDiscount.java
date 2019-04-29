@@ -4,6 +4,8 @@ public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 	private Article article;
 	private int quantity;
 	private int totaleproduct;
+	private int codeOffer;
+	private Offers offer;
 
 	public PaiementDiscount() {
 		// TODO Auto-generated constructor stub
@@ -17,20 +19,33 @@ public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 
 	}
 
+	public PaiementDiscount(Article article, int quantity, Offers offer) {
+		super();
+		this.article = article;
+		this.quantity = quantity;
+		this.totaleproduct = quantity;
+
+		this.offer = offer;
+
+	}
+
 	@Override
 
 	public void payer(double montant) {
 
-		if (isApple(this.article)) {
+		switch (this.offer.getCodeoffer()) {
+		case 0:
 
 			montant = BuyOneGetOneFree(this.article);
 			displayBucket(this.article, montant);
 
-		} else if (isWaterMelon(this.article)) {
+			break;
+		case 1:
 			montant = ThreeForPriceOfTwo(this.article);
 			displayBucket(this.article, montant);
-		} else {
-			System.out.println("There is no offer for this article");
+			break;
+		default:
+			System.out.println("There is no offer for this article code" + this.article.getName());
 		}
 
 	}
@@ -39,16 +54,6 @@ public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 	public boolean checkStockNoEmpty(Article a, int quantity) {
 
 		return a.getStock() >= quantity;
-	}
-
-	@Override
-	public boolean isApple(Article a) {
-		return a.getName().equals("Apple");
-	}
-
-	@Override
-	public boolean isWaterMelon(Article a) {
-		return a.getName().equals("Watermelon");
 	}
 
 	@Override
@@ -173,7 +178,6 @@ public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 	@Override
 	public boolean isEmptyStock(Article a) {
 
-		System.out.println("Stock is empty");
 		return a.getStock() == 0;
 	}
 

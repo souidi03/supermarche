@@ -36,15 +36,7 @@ public class BasketList extends Article {
 		this.articlelist.remove(a);
 	}
 
-	public double getTotalePrice(List<Article> articlelist) {
 
-		for (Article article : articlelist) {
-
-			this.totaleprice = +article.getPrice();
-
-		}
-		return this.totaleprice;
-	}
 
 	public void displayBasket(List<Article> articlelist) {
 
