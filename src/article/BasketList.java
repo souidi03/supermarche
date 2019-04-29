@@ -1,5 +1,8 @@
+package article;
 import java.util.ArrayList;
 import java.util.List;
+
+import strategypaiement.PaiementStrategy;
 
 public class BasketList extends Article {
 

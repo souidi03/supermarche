@@ -1,3 +1,5 @@
+package strategypaiement;
+import article.Article;
 
 public interface MarketRules {
 

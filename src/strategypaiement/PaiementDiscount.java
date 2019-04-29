@@ -1,3 +1,6 @@
+package strategypaiement;
+import article.Article;
+import offer.Offers;
 
 public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 
@@ -44,6 +47,7 @@ public class PaiementDiscount extends PaiementStrategy implements MarketRules {
 			montant = ThreeForPriceOfTwo(this.article);
 			displayBucket(this.article, montant);
 			break;
+
 		default:
 			System.out.println("There is no offer for this article code" + this.article.getName());
 		}

@@ -1,3 +1,5 @@
+package article;
+import strategypaiement.PaiementStrategy;
 
 public class Article {
 

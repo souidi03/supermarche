@@ -1,3 +1,7 @@
+import article.Article;
+import offer.Offers;
+import strategypaiement.PaiementDiscount;
+import strategypaiement.PaiementNoDiscount;
 
 public class Main {
 
